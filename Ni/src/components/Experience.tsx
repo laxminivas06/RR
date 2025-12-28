@@ -1,11 +1,15 @@
 import { Building2, Calendar, ExternalLink } from 'lucide-react';
 
+// ✅ Import logos from assets (same pattern as profile image)
+import snlLogo from '@/assets/snl.png';
+import wrLogo from '@/assets/wr.png';
+
 const experiences = [
   {
     company: 'Smart & Light Innovation',
     role: 'Co-Founder & Chief Operating Officer (COO)',
     duration: '2023 – Present',
-    logo: '/public/images/snl.png',
+    logo: snlLogo,
     website: 'https://smartnlightinnovation.netlify.app',
     responsibilities: [
       'Co-founded the startup and helped shape its vision and strategy',
@@ -18,7 +22,7 @@ const experiences = [
     company: 'Wisdom Roots',
     role: 'Chief Operating Officer (COO)',
     duration: '2024 – Present',
-    logo: '/public/images/wr.png',
+    logo: wrLogo,
     website: 'https://wisdomroots.netlify.app',
     responsibilities: [
       'Overseeing operational planning and execution',
@@ -50,7 +54,7 @@ const Experience = () => {
             <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full" />
           </div>
 
-          {/* Cards */}
+          {/* Experience Cards */}
           <div className="space-y-8">
             {experiences.map((exp) => (
               <div
@@ -63,8 +67,8 @@ const Experience = () => {
                     href={exp.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-shrink-0 group"
                     aria-label={`${exp.company} website`}
+                    className="flex-shrink-0 group"
                   >
                     <div className="w-20 h-20 rounded-2xl bg-card flex items-center justify-center shadow-card transition-transform duration-300 group-hover:scale-105 overflow-hidden">
                       <img
@@ -77,6 +81,7 @@ const Experience = () => {
                           target.nextElementSibling?.classList.remove('hidden');
                         }}
                       />
+                      {/* Fallback icon */}
                       <Building2 className="w-10 h-10 text-primary hidden" />
                     </div>
                   </a>
@@ -107,9 +112,9 @@ const Experience = () => {
 
                     {/* Responsibilities */}
                     <ul className="space-y-3">
-                      {exp.responsibilities.map((item, i) => (
+                      {exp.responsibilities.map((item, index) => (
                         <li
-                          key={i}
+                          key={index}
                           className="flex items-start gap-3 text-muted-foreground"
                         >
                           <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />

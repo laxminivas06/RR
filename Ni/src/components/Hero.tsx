@@ -1,6 +1,9 @@
 import { ArrowDown, FileText, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+// ✅ Import resume from assets (same pattern as images)
+import resumePDF from '@/assets/Govardhini_Reddy_Chirraiahgari_Resume.pdf';
+
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -25,9 +28,9 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 mt-6 rounded-full glass-card text-sm font-medium text-muted-foreground mb-8">
-  <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-  Open to Opportunities
-</div>
+            <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+            Open to Opportunities
+          </div>
 
           {/* Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
@@ -59,11 +62,8 @@ const Hero = () => {
               View Projects
             </Button>
 
-            {/* Resume Download */}
-            <a
-              href="/public/Govardhini_Reddy_Chirraiahgari_Resume.pdf"
-              download
-            >
+            {/* ✅ Resume Download from assets */}
+            <a href={resumePDF} download>
               <Button
                 variant="outline"
                 size="lg"
@@ -75,7 +75,7 @@ const Hero = () => {
             </a>
           </div>
 
-          {/* 🔽 Scroll Down Indicator (FIXED POSITION) */}
+          {/* Scroll Down Indicator */}
           <div className="mt-10 flex justify-center">
             <button
               onClick={() =>
